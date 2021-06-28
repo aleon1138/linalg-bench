@@ -1,0 +1,21 @@
+[package]
+name = "bench-linalg"
+version = "0.1.0"
+authors = ["Arnaldo Leon <amleon@alum.mit.edu>"]
+edition = "2018"
+
+[features]
+default = []
+real_blackbox = ["criterion/real_blackbox"]
+
+[dependencies]
+nalgebra = "0.25"
+libc = "0.2"
+rand = "0.8"
+ndarray-rand = "0.13"
+criterion = "0.3"
+
+# sudo apt install gfortran
+ndarray = { version = "0.14", features = ["blas"] }
+blas-src = { version = "0.6.1", default-features = false, features = ["openblas"] }
+openblas-src = { version = "0.9", default-features = false, features = ["cblas", "system"] }
